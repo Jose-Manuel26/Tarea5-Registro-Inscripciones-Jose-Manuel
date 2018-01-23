@@ -12,6 +12,7 @@ namespace Registro_Inscripciones.Entidades
         [Key]
         public int InscripcionID { get; set; }
         public string Fecha { get; set; }
+        public DateTime FechaD { get; set; }
         public int EstudianteId { get; set; }
         public float Monto { get; set; }
         public float Balance { get; set; }
@@ -31,6 +32,7 @@ namespace Registro_Inscripciones.Entidades
         {
             this.InscripcionID = InscripcionID;
             this.Fecha = Fecha;
+            FechaD = DateTime.Parse(Fecha);
             this.EstudianteId = EstudianteId;
             this.Monto = Monto;
             this.Balance = Balance;

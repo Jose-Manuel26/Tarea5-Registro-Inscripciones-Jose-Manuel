@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Registro_Inscripciones.BLL;
+using Registro_Inscripciones.Entidades;
 
 namespace Registro_Inscripciones.Consultas
 {
@@ -16,34 +18,45 @@ namespace Registro_Inscripciones.Consultas
         public cInscripciones()
         {
             InitializeComponent();
+            subCombobox.Visible = false;
         }
 
         private void btMostrar_Click(object sender, EventArgs e)
         {
-            //if(filterCombobox.SelectedIndex == 0)
-               // dataGridView1.DataSource = InscripcionesBLL.GetList(i => i.InscripcionID == int.Parse(txValor.Text));
+            int z = 0;
+            int.TryParse(txValor.Text, out z);
 
             switch (filterCombobox.SelectedIndex)
             {
-                case 0:
-                    dataGridView1.DataSource = InscripcionesBLL.GetList(i => i.InscripcionID == int.Parse(txValor.Text));
+                case 0:                 
+                    dataGridView1.DataSource = InscripcionesBLL.GetList(i => i.InscripcionID == z);
                     break;
 
-                case 1:
+                case 1:    
+                    if(subCombobox.SelectedIndex == 0)
+                        dataGridView1.DataSource = InscripcionesBLL.GetList(
+                            i => i.FechaD.Day == z);
 
+                    if (subCombobox.SelectedIndex == 1)
+                        dataGridView1.DataSource = InscripcionesBLL.GetList(
+                            i => i.FechaD.Month == z);
+
+                    if (subCombobox.SelectedIndex == 2)
+                        dataGridView1.DataSource = InscripcionesBLL.GetList(
+                            i => i.FechaD.Year == z);
                     break;
 
                 case 2:
-                    dataGridView1.DataSource = InscripcionesBLL.GetList(i => i.EstudianteId == int.Parse(txValor.Text));
+                    dataGridView1.DataSource = InscripcionesBLL.GetList(i => i.EstudianteId == z);
                     break;
 
 
                 case 3:
-                    dataGridView1.DataSource = InscripcionesBLL.GetList(i => i.Monto == int.Parse(txValor.Text));
+                    dataGridView1.DataSource = InscripcionesBLL.GetList(i => i.Monto == z);
                     break;
 
                 case 4:
-                    dataGridView1.DataSource = InscripcionesBLL.GetList(i => i.Balance == int.Parse(txValor.Text));
+                    dataGridView1.DataSource = InscripcionesBLL.GetList(i => i.Balance == z);
                     break;
 
                 case 5:
@@ -52,6 +65,19 @@ namespace Registro_Inscripciones.Consultas
             }
         }
 
-        
+        private void cInscripciones_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+       
+
+        private void filterCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(filterCombobox.SelectedIndex == 1)
+                subCombobox.Visible = true;
+            else
+                subCombobox.Visible = false;
+        }
     }
 }

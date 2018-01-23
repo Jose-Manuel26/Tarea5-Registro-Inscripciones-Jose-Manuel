@@ -34,6 +34,7 @@
             this.btMostrar = new System.Windows.Forms.Button();
             this.txValor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.subCombobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@
             this.filterCombobox.Name = "filterCombobox";
             this.filterCombobox.Size = new System.Drawing.Size(121, 21);
             this.filterCombobox.TabIndex = 1;
+            this.filterCombobox.SelectedIndexChanged += new System.EventHandler(this.filterCombobox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -95,11 +97,24 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Buscar";
             // 
+            // subCombobox
+            // 
+            this.subCombobox.FormattingEnabled = true;
+            this.subCombobox.Items.AddRange(new object[] {
+            "Dia",
+            "Mes",
+            "Año"});
+            this.subCombobox.Location = new System.Drawing.Point(140, 59);
+            this.subCombobox.Name = "subCombobox";
+            this.subCombobox.Size = new System.Drawing.Size(56, 21);
+            this.subCombobox.TabIndex = 6;
+            // 
             // cInscripciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 321);
+            this.Controls.Add(this.subCombobox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txValor);
             this.Controls.Add(this.btMostrar);
@@ -108,6 +123,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "cInscripciones";
             this.Text = "Consulta de Inscripciones";
+            this.Load += new System.EventHandler(this.cInscripciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -122,5 +138,6 @@
         private System.Windows.Forms.Button btMostrar;
         private System.Windows.Forms.TextBox txValor;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox subCombobox;
     }
 }
