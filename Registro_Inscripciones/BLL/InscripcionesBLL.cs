@@ -99,6 +99,7 @@ namespace Registro_Inscripciones.BLL
             try
             {
                 InscripcionesDb db = new InscripcionesDb();
+
                 lista = db.Inscripcion.Where(filter).ToList();
             }
             catch (Exception)

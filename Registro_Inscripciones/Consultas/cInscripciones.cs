@@ -23,13 +23,14 @@ namespace Registro_Inscripciones.Consultas
 
         private void btMostrar_Click(object sender, EventArgs e)
         {
+            Expression<Func<Inscripciones, bool>> filter ;
             int z = 0;
             int.TryParse(txValor.Text, out z);
 
             switch (filterCombobox.SelectedIndex)
             {
-                case 0:                 
-                    dataGridView1.DataSource = InscripcionesBLL.GetList(i => i.InscripcionID == z);
+                case 0:  //todos               
+                    filter = (i => i.InscripcionID == z);
                     break;
 
                 case 1:    
@@ -63,14 +64,9 @@ namespace Registro_Inscripciones.Consultas
                     dataGridView1.DataSource = InscripcionesBLL.GetList(i => i.Observaciones.Contains(txValor.Text));
                     break;
             }
-        }
 
-        private void cInscripciones_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-       
+            dataGridView1.DataSource = InscripcionesBLL.GetList(filter);
+        }     
 
         private void filterCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {

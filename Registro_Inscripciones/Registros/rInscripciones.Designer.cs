@@ -47,7 +47,9 @@
             this.btConsulta = new System.Windows.Forms.Button();
             this.btGuardar = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
-            this.btModificar = new System.Windows.Forms.Button();
+            this.Nombreslabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errpNumerico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errpCampoVacio)).BeginInit();
             this.SuspendLayout();
@@ -116,9 +118,8 @@
             this.txEstudianteID.Location = new System.Drawing.Point(149, 177);
             this.txEstudianteID.Margin = new System.Windows.Forms.Padding(4);
             this.txEstudianteID.Name = "txEstudianteID";
-            this.txEstudianteID.Size = new System.Drawing.Size(288, 22);
+            this.txEstudianteID.Size = new System.Drawing.Size(58, 22);
             this.txEstudianteID.TabIndex = 7;
-            this.txEstudianteID.TextChanged += new System.EventHandler(this.txEstudianteID_TextChanged);
             // 
             // txMonto
             // 
@@ -127,7 +128,6 @@
             this.txMonto.Name = "txMonto";
             this.txMonto.Size = new System.Drawing.Size(288, 22);
             this.txMonto.TabIndex = 8;
-            this.txMonto.TextChanged += new System.EventHandler(this.txMonto_TextChanged);
             // 
             // txBalance
             // 
@@ -136,7 +136,6 @@
             this.txBalance.Name = "txBalance";
             this.txBalance.Size = new System.Drawing.Size(288, 22);
             this.txBalance.TabIndex = 9;
-            this.txBalance.TextChanged += new System.EventHandler(this.txBalance_TextChanged);
             // 
             // txObservacion
             // 
@@ -146,7 +145,6 @@
             this.txObservacion.Name = "txObservacion";
             this.txObservacion.Size = new System.Drawing.Size(288, 96);
             this.txObservacion.TabIndex = 10;
-            this.txObservacion.TextChanged += new System.EventHandler(this.txObservacion_TextChanged);
             // 
             // errpNumerico
             // 
@@ -204,7 +202,7 @@
             // 
             this.btGuardar.Image = global::Registro_Inscripciones.Properties.Resources.Save_32;
             this.btGuardar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btGuardar.Location = new System.Drawing.Point(77, 423);
+            this.btGuardar.Location = new System.Drawing.Point(206, 423);
             this.btGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btGuardar.Name = "btGuardar";
             this.btGuardar.Size = new System.Drawing.Size(105, 57);
@@ -228,32 +226,53 @@
             this.btEliminar.UseVisualStyleBackColor = true;
             this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
             // 
-            // btModificar
+            // Nombreslabel
             // 
-            this.btModificar.Image = global::Registro_Inscripciones.Properties.Resources.Edit_32;
-            this.btModificar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btModificar.Location = new System.Drawing.Point(205, 423);
-            this.btModificar.Margin = new System.Windows.Forms.Padding(4);
-            this.btModificar.Name = "btModificar";
-            this.btModificar.Size = new System.Drawing.Size(105, 57);
-            this.btModificar.TabIndex = 12;
-            this.btModificar.Text = "Modificar";
-            this.btModificar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btModificar.UseVisualStyleBackColor = true;
-            this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
+            this.Nombreslabel.AutoSize = true;
+            this.Nombreslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nombreslabel.Location = new System.Drawing.Point(286, 177);
+            this.Nombreslabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Nombreslabel.Name = "Nombreslabel";
+            this.Nombreslabel.Size = new System.Drawing.Size(72, 17);
+            this.Nombreslabel.TabIndex = 1;
+            this.Nombreslabel.Text = "Nombres";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::Registro_Inscripciones.Properties.Resources.Find_32;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(215, 160);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(55, 50);
+            this.button1.TabIndex = 20;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button2.Location = new System.Drawing.Point(93, 423);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(105, 57);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Nuevo";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // rInscripciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 505);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btBuscar);
             this.Controls.Add(this.txInscripcionID);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btConsulta);
             this.Controls.Add(this.btGuardar);
             this.Controls.Add(this.btEliminar);
-            this.Controls.Add(this.btModificar);
             this.Controls.Add(this.txObservacion);
             this.Controls.Add(this.txBalance);
             this.Controls.Add(this.txMonto);
@@ -262,6 +281,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.Nombreslabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -286,7 +306,6 @@
         private System.Windows.Forms.TextBox txMonto;
         private System.Windows.Forms.TextBox txBalance;
         private System.Windows.Forms.TextBox txObservacion;
-        private System.Windows.Forms.Button btModificar;
         private System.Windows.Forms.Button btEliminar;
         private System.Windows.Forms.Button btGuardar;
         private System.Windows.Forms.Button btConsulta;
@@ -295,6 +314,9 @@
         private System.Windows.Forms.Button btBuscar;
         private System.Windows.Forms.TextBox txInscripcionID;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label Nombreslabel;
+        private System.Windows.Forms.Button button2;
     }
 }
 
