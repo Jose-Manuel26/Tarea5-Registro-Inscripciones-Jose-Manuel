@@ -13,18 +13,12 @@ using Registro_Inscripciones.Entidades;
 
 namespace Registro_Inscripciones
 {
-    public partial class Form1 : Form
+    public partial class rInscripciones : Form
     {
-        public Form1()
+        public rInscripciones()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        } 
         private void btConsulta_Click(object sender, EventArgs e)
         {
             new cInscripciones().Show();
@@ -34,14 +28,14 @@ namespace Registro_Inscripciones
         {
             if (!CampoVacio())
             {
-                if (InscripcionesBLL.Guardar(crearInscripcion()))
+                if (InscripcionesBLL.Guardar(ObtenerInstancia()))
                     MessageBox.Show("SE ARCHIVO LA INSCRIPCION");
             }
+            else
+                errpCampoVacio.Clear();
 
-            LimpiarTextBox();
-   
+            LimpiarTextBox();   
         }
-
 
         private void btBuscar_Click(object sender, EventArgs e)
         {
@@ -56,91 +50,18 @@ namespace Registro_Inscripciones
                 txObservacion.Text = ins.Observaciones;
             }
             else
-                MessageBox.Show("INSCRIPCIONID INVALIDA");
+                MessageBox.Show("Inscripcion invalida");
             
         }
-
-
-
-        private void txMonto_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                float a = float.Parse(txMonto.Text);
-                errpNumerico.Clear();
-
-                if (txMonto.Text != "")
-                    errpCampoVacio.SetError(txMonto, "");
-
-            }
-            catch (Exception)
-            {
-                errpNumerico.SetError(txMonto, "No es una valor numerico");
-            }
-        }
-
-
-
-        private void txBalance_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                float a = float.Parse(txBalance.Text);
-                errpNumerico.Clear();
-
-                if (txBalance.Text != "")
-                    errpCampoVacio.SetError(txBalance, "");
-
-            }
-            catch (Exception)
-            {
-                errpNumerico.SetError(txBalance, "No es una valor numerico");
-            }
-        }
-
-
-
-        private void txEstudianteID_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                float a = float.Parse(txEstudianteID.Text);
-                errpNumerico.Clear();
-
-                if (txEstudianteID.Text != "")
-                    errpCampoVacio.SetError(txEstudianteID, "");
-                    
-
-            }
-            catch (Exception)
-            {
-                errpNumerico.SetError(txEstudianteID, "No es una valor numerico");
-            }
-        }
-
-
-
-        private void txObservacion_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txObservacion.Text != "")
-                    errpCampoVacio.SetError(txObservacion, "");
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
-
+        //todo: poner numericupdown para los entradas de numeros  
+        
         private bool CampoVacio()
         {
             bool flag = false;
 
-            if (txEstudianteID.Text == "")
+            if ( string.IsNullOrWhiteSpace( txEstudianteID.Text) ) //todo: poner este tipo de validacion para los vacios
             {
-                errpCampoVacio.SetError(txEstudianteID, "Campo vacio");
+                errpCampoVacio.SetError(txEstudianteID, "El id del estudiante es obligatorio");
                 flag = true;
             }
 
@@ -161,40 +82,27 @@ namespace Registro_Inscripciones
                 errpCampoVacio.SetError(txObservacion, "Campo vacio");
                 flag = true;
             }
-
-            if (txEstudianteID.Text != "" && txMonto.Text != "" &&
-                txBalance.Text != "" && txObservacion.Text != "")
-            {
-                errpCampoVacio.Clear();
-                flag = false;
-            }
-
+                        
             return flag;
-
         }
-
 
         private void btEliminar_Click(object sender, EventArgs e)
         {
-
             if (InscripcionesBLL.Eliminar(int.Parse(txInscripcionID.Text)))
                 MessageBox.Show("SE ELIMINO LA INSCRIPCION");
 
             LimpiarTextBox();
         }
-
-
+        
         private void btModificar_Click(object sender, EventArgs e)
         {
-            if(InscripcionesBLL.Modificar(crearInscripcion()))
+            if(InscripcionesBLL.Modificar(ObtenerInstancia()))
                 MessageBox.Show("SE MODIFICO LA INSCRIPCION");
 
             LimpiarTextBox();
         }
 
-
-
-        private Inscripciones crearInscripcion()
+        private Inscripciones ObtenerInstancia()
         {
             return new Inscripciones(
                 0,
@@ -205,7 +113,6 @@ namespace Registro_Inscripciones
                 txObservacion.Text
                 );
         }
-
 
         private void LimpiarTextBox()
         {

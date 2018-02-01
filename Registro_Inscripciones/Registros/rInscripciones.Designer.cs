@@ -1,6 +1,6 @@
 ﻿namespace Registro_Inscripciones
 {
-    partial class Form1
+    partial class rInscripciones
     {
         /// <summary>
         /// Required designer variable.
@@ -106,7 +106,7 @@
             // 
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dateTimePicker1.Location = new System.Drawing.Point(149, 138);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(288, 22);
             this.dateTimePicker1.TabIndex = 6;
@@ -114,7 +114,7 @@
             // txEstudianteID
             // 
             this.txEstudianteID.Location = new System.Drawing.Point(149, 177);
-            this.txEstudianteID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txEstudianteID.Margin = new System.Windows.Forms.Padding(4);
             this.txEstudianteID.Name = "txEstudianteID";
             this.txEstudianteID.Size = new System.Drawing.Size(288, 22);
             this.txEstudianteID.TabIndex = 7;
@@ -123,7 +123,7 @@
             // txMonto
             // 
             this.txMonto.Location = new System.Drawing.Point(149, 214);
-            this.txMonto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txMonto.Margin = new System.Windows.Forms.Padding(4);
             this.txMonto.Name = "txMonto";
             this.txMonto.Size = new System.Drawing.Size(288, 22);
             this.txMonto.TabIndex = 8;
@@ -132,7 +132,7 @@
             // txBalance
             // 
             this.txBalance.Location = new System.Drawing.Point(149, 255);
-            this.txBalance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txBalance.Margin = new System.Windows.Forms.Padding(4);
             this.txBalance.Name = "txBalance";
             this.txBalance.Size = new System.Drawing.Size(288, 22);
             this.txBalance.TabIndex = 9;
@@ -141,7 +141,7 @@
             // txObservacion
             // 
             this.txObservacion.Location = new System.Drawing.Point(149, 296);
-            this.txObservacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txObservacion.Margin = new System.Windows.Forms.Padding(4);
             this.txObservacion.Multiline = true;
             this.txObservacion.Name = "txObservacion";
             this.txObservacion.Size = new System.Drawing.Size(288, 96);
@@ -169,7 +169,7 @@
             // txInscripcionID
             // 
             this.txInscripcionID.Location = new System.Drawing.Point(149, 80);
-            this.txInscripcionID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txInscripcionID.Margin = new System.Windows.Forms.Padding(4);
             this.txInscripcionID.Name = "txInscripcionID";
             this.txInscripcionID.Size = new System.Drawing.Size(132, 22);
             this.txInscripcionID.TabIndex = 18;
@@ -179,7 +179,7 @@
             this.btBuscar.Image = global::Registro_Inscripciones.Properties.Resources.Find_32;
             this.btBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btBuscar.Location = new System.Drawing.Point(289, 66);
-            this.btBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btBuscar.Name = "btBuscar";
             this.btBuscar.Size = new System.Drawing.Size(148, 50);
             this.btBuscar.TabIndex = 19;
@@ -242,7 +242,7 @@
             this.btModificar.UseVisualStyleBackColor = true;
             this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
             // 
-            // Form1
+            // rInscripciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -264,10 +264,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "rInscripciones";
             this.Text = "Registro de Inscripciones";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errpNumerico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errpCampoVacio)).EndInit();
             this.ResumeLayout(false);
